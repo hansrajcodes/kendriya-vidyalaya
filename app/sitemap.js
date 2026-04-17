@@ -12,7 +12,6 @@ export default function sitemap() {
     { path: '/gallery', priority: 0.6, changeFrequency: 'weekly' },
     { path: '/examination', priority: 0.7, changeFrequency: 'monthly' },
     { path: '/general-info', priority: 0.6, changeFrequency: 'monthly' },
-    { path: '/mandatory-disclosure', priority: 0.5, changeFrequency: 'yearly' },
     { path: '/academics', priority: 0.8, changeFrequency: 'monthly' },
     { path: '/academics/fee-structure', priority: 0.7, changeFrequency: 'yearly' },
     { path: '/academics/calendar', priority: 0.7, changeFrequency: 'monthly' },

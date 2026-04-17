@@ -135,37 +135,66 @@ async function main() {
   }
 
   // ── Calendar ──
+  // Note: dates for lunar/Islamic festivals are approximations and should
+  // be reviewed annually by the admin against the official calendar.
   const calendarCount = await prisma.calendarEvent.count()
   if (calendarCount === 0) {
     await prisma.calendarEvent.createMany({
       data: [
+        // April
         { date: new Date('2026-04-01'), name: 'Session Begins' },
         { date: new Date('2026-04-05'), name: 'Orientation Day for new students' },
+        { date: new Date('2026-04-14'), name: 'Baisakhi (Vaisakhi)' },
+        { date: new Date('2026-04-21'), name: 'Ram Navami' },
+        { date: new Date('2026-04-30'), name: 'Mahavir Jayanti' },
+        // May
+        { date: new Date('2026-05-01'), name: 'Labour Day' },
+        { date: new Date('2026-05-11'), name: 'Buddha Purnima' },
         { date: new Date('2026-05-15'), name: 'Summer Break begins' },
+        { date: new Date('2026-05-27'), name: 'Eid-ul-Adha (Bakrid)' },
+        // July
         { date: new Date('2026-07-01'), name: 'Session resumes' },
+        { date: new Date('2026-07-05'), name: 'Muharram' },
         { date: new Date('2026-07-15'), name: 'Unit Test I' },
         { date: new Date('2026-07-28'), name: 'Parent-Teacher Meeting' },
+        // August
         { date: new Date('2026-08-09'), name: 'Raksha Bandhan' },
         { date: new Date('2026-08-15'), name: 'Independence Day' },
+        // September
         { date: new Date('2026-09-04'), name: 'Janmashtami' },
         { date: new Date('2026-09-05'), name: "Teacher's Day" },
+        { date: new Date('2026-09-14'), name: 'Ganesh Chaturthi' },
         { date: new Date('2026-09-22'), name: 'Half-Yearly Examination begins' },
-        { date: new Date('2026-10-02'), name: 'Half-Yearly Examination ends' },
-        { date: new Date('2026-10-20'), name: 'Dussehra Break' },
+        // October
+        { date: new Date('2026-10-02'), name: 'Gandhi Jayanti' },
+        { date: new Date('2026-10-05'), name: 'Half-Yearly Examination ends' },
+        { date: new Date('2026-10-20'), name: 'Dussehra Break (Vijayadashami)' },
+        // November
         { date: new Date('2026-11-08'), name: 'Diwali Break' },
+        { date: new Date('2026-11-10'), name: 'Bhai Dooj' },
         { date: new Date('2026-11-14'), name: "Children's Day" },
         { date: new Date('2026-11-24'), name: 'Guru Nanak Jayanti' },
         { date: new Date('2026-11-25'), name: 'Sports Day' },
+        // December
         { date: new Date('2026-12-08'), name: 'Unit Test II' },
         { date: new Date('2026-12-20'), name: 'Winter Break begins' },
         { date: new Date('2026-12-25'), name: 'Christmas' },
+        // January
+        { date: new Date('2027-01-01'), name: "New Year's Day" },
         { date: new Date('2027-01-05'), name: 'Session resumes' },
         { date: new Date('2027-01-13'), name: 'Lohri' },
+        { date: new Date('2027-01-14'), name: 'Makar Sankranti / Maghi' },
+        { date: new Date('2027-01-17'), name: 'Guru Gobind Singh Jayanti' },
         { date: new Date('2027-01-26'), name: 'Republic Day' },
+        // February
         { date: new Date('2027-02-10'), name: 'Annual Examination begins (Senior)' },
+        { date: new Date('2027-02-14'), name: 'Maha Shivratri' },
         { date: new Date('2027-02-20'), name: 'Annual Day preparations' },
+        // March
         { date: new Date('2027-03-01'), name: 'Annual Examination' },
+        { date: new Date('2027-03-04'), name: 'Holi' },
         { date: new Date('2027-03-15'), name: 'Annual Day Celebration' },
+        { date: new Date('2027-03-19'), name: 'Eid-ul-Fitr' },
         { date: new Date('2027-03-28'), name: 'Result Declaration' },
       ],
     })

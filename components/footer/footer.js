@@ -87,7 +87,6 @@ export default function Footer() {
                 <li><Link href="/general-info" className={styles.footerLink}>General Info</Link></li>
                 <li><Link href="/faculty" className={styles.footerLink}>Faculty</Link></li>
                 <li><Link href="/examination" className={styles.footerLink}>Examination</Link></li>
-                <li><Link href="/mandatory-disclosure" className={styles.footerLink}>Mandatory Disclosure</Link></li>
               </ul>
             </div>
           </div>
