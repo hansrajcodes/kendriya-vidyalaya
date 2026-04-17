@@ -1,0 +1,212 @@
+/* ───────────────────────────────────────────
+   Circulars Page
+   ─────────────────────────────────────────── */
+
+.section {
+  padding: var(--section-pad);
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.label {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-gold);
+  display: block;
+  margin-bottom: 10px;
+}
+
+.heading {
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-bold);
+  color: var(--color-navy);
+  padding-bottom: 14px;
+  border-bottom: 2px solid var(--color-navy);
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.centered {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.centered .heading {
+  margin-bottom: 16px;
+}
+
+.intro {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-grey-text);
+  line-height: var(--leading-relaxed);
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+/* ── Circular List ── */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-height: 600px;
+  scroll-margin-top: 450px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-navy);
+  padding: 24px;
+  border-radius: var(--radius-md);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+.cardLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.badge {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-navy);
+  background: var(--color-off-white);
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.date {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-grey-subtle);
+}
+
+.cardCenter {
+  flex: 1;
+}
+
+.title {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
+  color: var(--color-navy);
+}
+
+.cardRight {
+  flex-shrink: 0;
+}
+
+.downloadBtn {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-white);
+  background: var(--color-navy);
+  border: 1px solid var(--color-navy);
+  padding: 8px 16px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background var(--transition-base), color var(--transition-base), transform var(--transition-base);
+  display: inline-block;
+  will-change: transform;
+}
+
+.downloadBtn:hover {
+  background: var(--color-navy-mid);
+  color: var(--color-white);
+  transform: translateY(-2px);
+}
+
+.downloadBtn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.noResults {
+  text-align: center;
+  padding: 28px 0;
+  color: var(--color-grey-subtle);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+}
+
+/* ── Pagination ── */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 32px;
+}
+
+.pageBtn {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--color-navy);
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+}
+
+.pageBtn:hover:not(:disabled) {
+  background: var(--color-off-white);
+}
+
+.pageBtn:active:not(:disabled) {
+  transform: translateY(0) scale(0.98);
+}
+
+.pageBtn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.pageBtnActive {
+  background: var(--color-navy);
+  color: var(--color-white);
+  border-color: var(--color-navy);
+}
+
+.pageBtnActive:hover {
+  background: var(--color-navy);
+}
+
+/* ── Responsive ── */
+@media (min-width: 768px) {
+  .card {
+    flex-direction: row;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .cardLeft {
+    min-width: 200px;
+  }
+}

@@ -1,0 +1,219 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ── Admin User ──
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// ── Circulars & Notices ──
+model Circular {
+  id        String   @id @default(cuid())
+  title     String
+  date      DateTime
+  type      String
+  pdfUrl    String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// ── Holidays Homework ──
+model Homework {
+  id             String   @id @default(cuid())
+  className      String
+  vacationPeriod String
+  date           String
+  pdfUrl         String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+// ── Fee Structure ──
+model FeeGroup {
+  id              String   @id @default(cuid())
+  classRange      String   // e.g. "Nur to U.K.G", "I to III"
+  siblingDiscount Int      @default(15)
+  monthlyTuition  Int      // per-month tuition rate
+  idCardNew       Int      @default(100)
+  idCardOld       Int      @default(100)
+  registrationNew Int      @default(3000)
+  registrationOld Int      @default(0)
+  admissionNew    Int      @default(0)
+  admissionOld    Int      @default(0)
+  tuitionNew      Int      @default(0) // total tuition shown (e.g. 3 months)
+  tuitionOld      Int      @default(0)
+  sortOrder       Int      @default(0)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model FeeNote {
+  id        String   @id @default(cuid())
+  content   String
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// ── Book List ──
+model BookList {
+  id        String   @id @default(cuid())
+  className String
+  year      String
+  pdfUrl    String?
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// ── Academic Calendar ──
+model CalendarEvent {
+  id        String   @id @default(cuid())
+  date      DateTime
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// ── Examination: Syllabus ──
+model Syllabus {
+  id        String   @id @default(cuid())
+  className String
+  pdfUrl    String?
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// ── Examination: Datesheet ──
+model Datesheet {
+  id        String   @id @default(cuid())
+  title     String   @default("")
+  term      String
+  className String   @default("")
+  month     String
+  year      String   @default("")
+  pdfUrl    String?
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// ── Faculty ──
+model Faculty {
+  id            String   @id @default(cuid())
+  name          String
+  role          String
+  subject       String
+  qualification String
+  imageUrl      String?
+  sortOrder     Int      @default(0)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+// ── Gallery Albums ──
+model GalleryAlbum {
+  id        String         @id @default(cuid())
+  title     String
+  category  String         @default("General")
+  images    GalleryImage[]
+  createdAt DateTime       @default(now())
+  updatedAt DateTime       @updatedAt
+}
+
+// ── Gallery Images ──
+model GalleryImage {
+  id        String        @id @default(cuid())
+  title     String
+  imageUrl  String
+  category  String        @default("General")
+  albumId   String?
+  album     GalleryAlbum? @relation(fields: [albumId], references: [id], onDelete: Cascade)
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+}
+
+// ── Careers / Job Openings ──
+model Career {
+  id            String              @id @default(cuid())
+  title         String
+  type          String
+  qualification String
+  experience    String
+  isActive      Boolean             @default(true)
+  applications  CareerApplication[]
+  createdAt     DateTime            @default(now())
+  updatedAt     DateTime            @updatedAt
+}
+
+// ── Student/Parent Testimonials ──
+model Testimonial {
+  id        String   @id @default(cuid())
+  name      String
+  quote     String
+  role      String
+  isActive  Boolean  @default(true)
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// ── Admission Applications ──
+model AdmissionApplication {
+  id             String   @id @default(cuid())
+  studentName    String
+  dob            String
+  gender         String
+  classApplying  String
+  fatherName     String
+  motherName     String
+  phone          String
+  email          String
+  address        String
+  previousSchool String   @default("")
+  status         String   @default("pending")
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+// ── Career Applications ──
+model CareerApplication {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  phone     String
+  careerId  String
+  career    Career   @relation(fields: [careerId], references: [id], onDelete: Cascade)
+  resumeUrl String?
+  message   String   @default("")
+  status    String   @default("pending")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// ── Notifications ──
+model Notification {
+  id        String   @id @default(cuid())
+  type      String
+  message   String
+  link      String   @default("")
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+// ── Site Settings (key-value store) ──
+model SiteSetting {
+  key   String @id
+  value String
+}

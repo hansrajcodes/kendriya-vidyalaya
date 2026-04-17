@@ -1,0 +1,146 @@
+.header {
+  height: 60px;
+  background: var(--color-white);
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.menuBtn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--color-navy);
+  font-size: 1.4rem;
+  cursor: pointer;
+  padding: 0.25rem;
+  transition: color var(--transition-fast);
+}
+
+.menuBtn:hover {
+  color: var(--color-navy-mid);
+}
+
+.menuBtn:active {
+  transform: scale(0.92);
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--color-navy);
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.bellBtn {
+  position: relative;
+  background: none;
+  border: none;
+  color: var(--color-navy);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.bellBtn:hover {
+  transform: translateY(-1px);
+}
+
+.bellBtn:active {
+  transform: translateY(0) scale(0.92);
+}
+
+.bellBadge {
+  position: absolute;
+  top: -4px;
+  right: -6px;
+  background: #c0392b;
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  font-weight: 700;
+  min-width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  padding: 0 4px;
+}
+
+.siteLink {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-navy);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: color var(--transition-fast);
+}
+
+.siteLink:hover {
+  color: var(--color-navy-mid);
+}
+
+.user {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-grey-text);
+}
+
+.signOut {
+  background: none;
+  border: 1px solid var(--color-border);
+  padding: 0.4rem 0.85rem;
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: var(--color-grey-text);
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: var(--radius-sm);
+  transition: border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.signOut:hover {
+  border-color: var(--color-navy);
+  color: var(--color-navy);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(11, 31, 58, 0.1);
+}
+
+.signOut:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: none;
+}
+
+@media (max-width: 768px) {
+  .menuBtn {
+    display: flex;
+  }
+
+  .user {
+    display: none;
+  }
+}

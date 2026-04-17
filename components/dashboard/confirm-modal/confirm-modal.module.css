@@ -1,0 +1,112 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 300;
+  padding: 1.5rem;
+  animation: fadeIn 0.2s ease both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal {
+  width: 100%;
+  max-width: 400px;
+  background: var(--color-white);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  padding: 1.75rem;
+  border-radius: var(--radius-lg);
+  animation: scaleIn 0.25s var(--ease-out-expo) both;
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.icon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fef2f2;
+  color: #991b1b;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  border-radius: var(--radius-md);
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--color-navy);
+  margin-bottom: 0.5rem;
+}
+
+.message {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-grey-text);
+  line-height: var(--leading-relaxed);
+  margin-bottom: 1.5rem;
+}
+
+.actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+}
+
+.cancelBtn {
+  padding: 0.55rem 1.25rem;
+  background: none;
+  border: 1px solid var(--color-border);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-grey-text);
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+}
+
+.cancelBtn:hover {
+  border-color: var(--color-navy);
+  color: var(--color-navy);
+  transform: translateY(-1px);
+}
+
+.cancelBtn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.confirmBtn {
+  padding: 0.55rem 1.25rem;
+  background: #991b1b;
+  color: var(--color-white);
+  border: 1px solid #991b1b;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.confirmBtn:hover {
+  background: #7f1d1d;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(153, 27, 27, 0.3);
+}
+
+.confirmBtn:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: none;
+}

@@ -1,0 +1,124 @@
+/* ───────────────────────────────────────────
+   PageHero – Navy banner with title + breadcrumb
+   ─────────────────────────────────────────── */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero {
+  background: var(--color-navy);
+  padding: 100px var(--section-pad-h) 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle diagonal accent */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -20%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    transparent 40%,
+    rgba(250, 250, 248, 0.04) 40%,
+    rgba(250, 250, 248, 0.04) 60%,
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/* ── Breadcrumb ── */
+.breadcrumb {
+  margin-bottom: 20px;
+  animation: fadeInUp 0.4s var(--ease-out-expo) 0.1s both;
+}
+
+.crumbList {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.crumbItem {
+  display: flex;
+  align-items: center;
+}
+
+.crumbLink {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: rgba(250, 250, 248, 0.7);
+  text-decoration: none;
+  letter-spacing: var(--tracking-wide);
+  transition: color var(--transition-fast);
+}
+
+.crumbLink:hover {
+  color: var(--color-white);
+}
+
+.crumbSep {
+  margin: 0 10px;
+  color: var(--color-grey-mid);
+  font-size: var(--text-sm);
+}
+
+.crumbCurrent {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--color-white);
+  letter-spacing: var(--tracking-wide);
+}
+
+/* ── Title ── */
+.title {
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-bold);
+  color: var(--color-white);
+  line-height: var(--leading-tight);
+  margin: 0;
+  animation: fadeInUp 0.5s var(--ease-out-expo) both;
+}
+
+/* ── Decorative gold underline ── */
+.decoLine {
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: var(--color-gold);
+  margin-top: 20px;
+}
+
+/* ── Responsive ── */
+@media (min-width: 768px) {
+  .hero {
+    padding: 100px var(--section-pad-h) 36px;
+  }
+
+  .title {
+    font-size: var(--text-3xl);
+  }
+}

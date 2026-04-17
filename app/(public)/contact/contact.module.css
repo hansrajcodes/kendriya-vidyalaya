@@ -1,0 +1,226 @@
+/* ───────────────────────────────────────────
+   Contact Page
+   ─────────────────────────────────────────── */
+
+.section {
+  padding: var(--section-pad);
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.label {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-gold);
+  display: block;
+  margin-bottom: 10px;
+}
+
+.heading {
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-bold);
+  color: var(--color-navy);
+  padding-bottom: 14px;
+  border-bottom: 2px solid var(--color-navy);
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.text {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-grey-text);
+  line-height: var(--leading-relaxed);
+  margin-bottom: 16px;
+}
+
+/* ── Grid Layout ── */
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.infoCol {
+  flex: 1;
+}
+
+.formCol {
+  flex: 1;
+}
+
+/* ── Contact Details ── */
+.detailsList {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.detailItem {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.detailIcon {
+  font-size: 1.4rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.detailLabel {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 4px;
+}
+
+.detailValue {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-navy);
+  line-height: var(--leading-normal);
+  white-space: pre-line;
+}
+
+/* ── Form Card ── */
+.formCard {
+  background: var(--color-off-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+}
+
+.formTitle {
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+  color: var(--color-navy);
+  margin-bottom: 16px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.fieldLabel {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-navy);
+}
+
+.input,
+.select,
+.textarea {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-navy);
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  width: 100%;
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+  outline: none;
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 3px rgba(11, 31, 58, 0.08);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.submitBtn {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-white);
+  background: var(--color-navy);
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 14px 32px;
+  cursor: pointer;
+  transition: background var(--transition-base), transform var(--transition-base), box-shadow var(--transition-base);
+  align-self: flex-start;
+  will-change: transform;
+}
+
+.submitBtn:hover {
+  background: var(--color-navy-mid);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.submitBtn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* ── Map Section ── */
+.mapSection {
+  padding: var(--section-pad);
+  background: var(--color-off-white);
+}
+
+.mapGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.map {
+  display: block;
+  width: 100%;
+  min-height: 300px;
+}
+
+.mapInfo {
+  flex: 1;
+}
+
+/* ── Responsive ── */
+@media (min-width: 768px) {
+  .grid {
+    flex-direction: row;
+  }
+
+  .mapGrid {
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .map {
+    flex: 1.4;
+    min-height: 400px;
+  }
+
+  .mapInfo {
+    flex: 1;
+  }
+}
